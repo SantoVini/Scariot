@@ -31,11 +31,12 @@ class ClienteController extends Controller
     {
         $Cliente = new Cliente([
             'nome' => $request ->input('nome'),
-            'endereco' => $request ->input('endereco'),
-            'cpf' => $request ->input('cpf')
+            'endereço' => $request ->input('endereço'),
+            'cpf' => $request ->input('cpf'),
+            'email' => $request ->input('email'),
         ]);
 
-        $autor->save();
+        $Cliente->save();
 
         return redirect()->route('Cliente.index'); 
 
@@ -55,7 +56,8 @@ class ClienteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $Cliente = Cliente::findOrFail($id);
+        return view ('Cliente.show', compact('Cliente'));
     }
 
     /**
@@ -63,7 +65,8 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $Cliente = Cliente::findOrFail($id);
+        return view('Cliente.edit', compact('Cliente'));
     }
 
     /**
@@ -71,7 +74,12 @@ class ClienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $Cliente = Cliente::findOrFail($id);
+
+        $Cliente->nome = $request->input('nome');
+        $Cliente->endereço = $request->input('endereço');
+        $Cliente->cpf = $request->input('cpf');
+        $Cliente->email = $request->input('email');
     }
 
     /**
@@ -79,6 +87,9 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Cliente = Cliente::findOrFail($id);
+
+        $Cliente->delete();
+        return redirect()->route('Cliente.index');
     }
 }
