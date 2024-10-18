@@ -11,7 +11,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-      //
+        $Produto = Produto::all();
+        return view('Produto.index',compact('Produto'));
     }
 
     /**
@@ -19,7 +20,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view ('Produto.create');
     }
 
     /**
@@ -27,7 +28,15 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Produto = new Produto([
+            'nome' => $request ->input('nome'),
+            'descricao' => $request ->input('descricao'),
+            'valor_base' => $request ->input('valor_base'),
+        ]);
+
+        $Produto->save();
+
+        return redirect()->route('Produto.index'); 
     }
 
     /**
@@ -35,7 +44,8 @@ class ProdutoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $Produto = Produto::findOrFail($id);
+        return view ('Produto.show', compact('Produto'));
     }
 
     /**
@@ -43,7 +53,8 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $Produto = Produto::findOrFail($id);
+        return view('Produto.edit', compact('Produto'));
     }
 
     /**
@@ -51,7 +62,11 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $Produto = Produto::findOrFail($id);
+
+        $Produto->nome = $request->input('nome');
+        $Produto->descricao = $request->input('descricao');
+        $Produto->valor_base = $request->input('valor_base');
     }
 
     /**
@@ -59,6 +74,9 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Produto = Produto::findOrFail($id);
+
+        $Produto->delete();
+        return redirect()->route('Produto.index');
     }
 }
