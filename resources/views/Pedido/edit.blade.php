@@ -22,7 +22,7 @@
 
                 <div class="form-action">
                     <button type="submit" class="btn-primary">Salvar</button>
-                    <a href="{{ route('Cliente.index') }}" class="btn-secondary">Cancelar</a>
+                    <a href="{{ route('Pedido.index') }}" class="btn-secondary">Cancelar</a>
                 </div>
             </form>
         </div>
