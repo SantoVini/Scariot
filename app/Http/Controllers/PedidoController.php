@@ -29,7 +29,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $Pedido = new Cliente([
+        $Pedido = new Pedido([
             'descrição' => $request ->input('descrição'),
             'data_do_pedido' => $request ->input('data_do_pedido'),
             'valor_total' => $request ->input('valor_total'),
@@ -64,16 +64,16 @@ class PedidoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $Cliente = Cliente::findOrFail($id);
+        $Pedido = Pedido::findOrFail($id);
 
-        $Cliente->nome = $request->input('nome');
-        $Cliente->endereço = $request->input('endereço');
-        $Cliente->cpf = $request->input('cpf');
-        $Cliente->email = $request->input('email');
+        $Pedido->descrição = $request->input('descrição');
+        $Pedido->data_do_pedido = $request->input('data_do_pedido');
+        $Pedido->valor_total = $request->input('valor_total');
+        $Pedido->id_cliente = $request->input('id_cliente');
 
-        $Cliente->save();
+        $Pedido->save();
 
-        return redirect()->route('Cliente.index');
+        return redirect()->route('Pedido.index');
     }
 
     /**
@@ -81,6 +81,9 @@ class PedidoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+
+        $Pedido->delete();
+        return redirect()->route('Pedido.index');
     }
 }
