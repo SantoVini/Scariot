@@ -72,7 +72,7 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $Cliente = Cliente::findOrFail($id);
 
@@ -80,6 +80,10 @@ class ClienteController extends Controller
         $Cliente->endereço = $request->input('endereço');
         $Cliente->cpf = $request->input('cpf');
         $Cliente->email = $request->input('email');
+
+        $Cliente->save();
+
+        return redirect()->route('Cliente.index');
     }
 
     /**

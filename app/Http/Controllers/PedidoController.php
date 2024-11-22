@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pedido;
 
 class PedidoController extends Controller
 {
@@ -11,7 +12,8 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        $Pedido = Pedido::all();
+        return view('Pedido.index',compact('Pedido'));
     }
 
     /**
@@ -19,7 +21,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        return view ('Pedido.create');
     }
 
     /**
@@ -27,7 +29,16 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Pedido = new Pedido([
+            'descrição' => $request ->input('descrição'),
+            'data_do_pedido' => $request ->input('data_do_pedido'),
+            'valor_total' => $request ->input('valor_total'),
+            'id_cliente' => $request ->input('id_cliente'),
+        ]);
+
+        $Pedido->save();
+
+        return redirect()->route('Pedido.index');
     }
 
     /**
@@ -35,7 +46,8 @@ class PedidoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+        return view ('Pedido.show', compact('Pedido'));
     }
 
     /**
@@ -43,7 +55,8 @@ class PedidoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+        return view('Pedido.edit', compact('Pedido'));
     }
 
     /**
@@ -51,7 +64,16 @@ class PedidoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+
+        $Pedido->descrição = $request->input('descrição');
+        $Pedido->data_do_pedido = $request->input('data_do_pedido');
+        $Pedido->valor_total = $request->input('valor_total');
+        $Pedido->id_cliente = $request->input('id_cliente');
+
+        $Pedido->save();
+
+        return redirect()->route('Pedido.index');
     }
 
     /**
@@ -59,6 +81,9 @@ class PedidoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Pedido = Pedido::findOrFail($id);
+
+        $Pedido->delete();
+        return redirect()->route('Pedido.index');
     }
 }

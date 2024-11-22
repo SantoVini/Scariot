@@ -2,11 +2,11 @@
     <a href="{{route ('Cliente.create')}}" class="btn btn-primary">Novo Cliente</a>
     <table class="table">
         <thead>
-            <tr>ID</tr>
-            <tr>Nome</tr>
-            <tr>Endereço</tr>
-            <tr>CPF</tr>
-            <tr>Email</tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>CPF</th>
+            <th>Email</th>
         </thead>
         <tbody>
             @foreach ($Cliente as $Cliente)

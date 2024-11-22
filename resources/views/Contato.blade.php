@@ -11,8 +11,8 @@
                             (54) 99715-5499
                             Terça - Sábado: 11:00-13:00 </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+        <a href="{{route ('Cliente.index')}}" class="btn btn-primary">Login</a>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Cardapio</button>
       </div>
     </div>
   </div>
