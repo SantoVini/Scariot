@@ -1,23 +1,25 @@
 <x-app-layout>
-    <a href="{{route ('Produto.create')}}" class="btn btn-primary">Novo Produto</a>
+    <a href="{{route ('Pedido.create')}}" class="btn btn-primary">Novo Pedido</a>
     <table class="table">
         <thead>
             <tr>ID</tr>
-            <tr>Nome</tr>
             <tr>Descricao</tr>
-            <tr>Valor Base</tr>
+            <tr>Data Pedido</tr>
+            <tr>Valor Total</tr>
+            <tr>ID Cliente</tr>
         </thead>
         <tbody>
-            @foreach ($Produto as $Produto)
+            @foreach ($Pedido as $Pedido)
             <tr>
-                <td class="colunas">{{ $Produto->id }}</td>
-                <td class="nome">{{ $Produto->nome }}</td>
-                <td class="descricao">{{ $Produto->descricao }}</td>
-                <td class="valor_base">{{ $Produto->valor_base }}</td>
+                <td class="colunas">{{ $Pedido->id }}</td>
+                <td class="nome">{{ $Pedido->descrição }}</td>
+                <td class="descricao">{{ $Pedido->data_pedido }}</td>
+                <td class="valor_base">{{ $Pedido->valor_total }}</td>
+                <td class="id_cliente">{{ $Pedido->id_cliente }}</td>
                 <td>
-                    <a href="{{ route('Produto.show', $Produto->id) }}" class=btn btn-info>Detalhes</a>
-                    <a href="{{ route('Produto.edit', $Produto->id) }}" class=btn btn-warning>Editar</a>
-                    <form action="{{ route('Produto.destroy', $Produto->id) }}" method="POST" style="display: inline;">
+                    <a href="{{ route('Pedido.show', $Pedido->id) }}" class=btn btn-info>Detalhes</a>
+                    <a href="{{ route('Pedido.edit', $Pedido->id) }}" class=btn btn-warning>Editar</a>
+                    <form action="{{ route('Pedido.destroy', $Pedido->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Excluir</button>
