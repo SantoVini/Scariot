@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ItemPedidoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,5 +28,9 @@ Route::middleware('auth')->group(function () {
 Route::resource('Produto', ProdutoController::class);
 
 Route::resource('Cliente', ClienteController::class);
+
+Route::resource('Pedido', PedidoController::class);
+
+Route::resource('ItemPedido', ItemPedidoController::class);
 
 require __DIR__.'/auth.php';
