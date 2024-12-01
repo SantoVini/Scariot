@@ -4,7 +4,7 @@
         <thead>
             <tr>ID</tr>
             <tr>Nome</tr>
-            <tr>Descricao</tr>
+            <tr>Descrição</tr>
             <tr>Valor Base</tr>
         </thead>
         <tbody>
@@ -12,7 +12,7 @@
             <tr>
                 <td class="colunas">{{ $Produto->id }}</td>
                 <td class="nome">{{ $Produto->nome }}</td>
-                <td class="descricao">{{ $Produto->descricao }}</td>
+                <td class="descrição">{{ $Produto->descrição }}</td>
                 <td class="valor_base">{{ $Produto->valor_base }}</td>
                 <td>
                     <a href="{{ route('Produto.show', $Produto->id) }}" class=btn btn-info>Detalhes</a>

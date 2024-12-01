@@ -3,7 +3,7 @@
     <table class="table">
         <thead>
             <tr>ID</tr>
-            <tr>Descricao</tr>
+            <tr>Descrição</tr>
             <tr>Data Pedido</tr>
             <tr>Valor Total</tr>
             <tr>ID Cliente</tr>
@@ -12,9 +12,9 @@
             @foreach ($Pedido as $Pedido)
             <tr>
                 <td class="colunas">{{ $Pedido->id }}</td>
-                <td class="nome">{{ $Pedido->descrição }}</td>
-                <td class="descricao">{{ $Pedido->data_pedido }}</td>
-                <td class="valor_base">{{ $Pedido->valor_total }}</td>
+                <td class="descrição">{{ $Pedido->descrição }}</td>
+                <td class="data_pedido">{{ $Pedido->data_pedido }}</td>
+                <td class="valor_total">{{ $Pedido->valor_total }}</td>
                 <td class="id_cliente">{{ $Pedido->id_cliente }}</td>
                 <td>
                     <a href="{{ route('Pedido.show', $Pedido->id) }}" class=btn btn-info>Detalhes</a>

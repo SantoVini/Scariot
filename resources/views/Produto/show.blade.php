@@ -16,7 +16,7 @@
             </div>
             <div class="meta">
                 <span class="label">Descrição:</span>
-                <span class="info">{{ $Produto->descricao }}</span>
+                <span class="info">{{ $Produto->descrição }}</span>
             </div>
             <div class="meta">
                 <span class="label">Valor Base:</span>

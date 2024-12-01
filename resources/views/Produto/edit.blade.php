@@ -11,8 +11,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="descricao">Descricao:</label>
-                    <input type="text" id="descricao" name="descricao" value="{{old('descricao', $Produto->descricao) }}" class="form-input">
+                    <label class="form-label" for="descrição">Descricao:</label>
+                    <input type="text" id="descrição" name="descrição" value="{{old('descrição', $Produto->descrição) }}" class="form-input">
                 </div>
 
                 <div class="form-group">

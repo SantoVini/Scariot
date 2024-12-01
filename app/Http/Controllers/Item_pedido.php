@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item_pedido;
 
-class Item_pedido extends Controller
+class Item_pedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +14,7 @@ class Item_pedido extends Controller
     {
         $Item_pedido = Item_pedido::all();
         return view('Item_pedido.index',compact('Item_pedido'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,10 +30,10 @@ class Item_pedido extends Controller
     public function store(Request $request)
     {
         $Item_pedido = new Item_pedido([
-            'nome' => $request ->input('nome'),
-            'endereço' => $request ->input('endereço'),
-            'cpf' => $request ->input('cpf'),
-            'email' => $request ->input('email'),
+            'quantidade' => $request ->input('quantidade'),
+            'valor' => $request ->input('valor'),
+            'id_pedido' => $request ->input('id_pedido'),
+            'id_produto' => $request ->input('id_produto'),
         ]);
 
         $Item_pedido->save();
@@ -64,10 +66,10 @@ class Item_pedido extends Controller
     {
         $Item_pedido = Item_pedido::findOrFail($id);
 
-        $Item_pedido->nome = $request->input('nome');
-        $Item_pedido->endereço = $request->input('endereço');
-        $Item_pedido->cpf = $request->input('cpf');
-        $Item_pedido->email = $request->input('email');
+        $Item_pedido->quantidade = $request->input('quantidade');
+        $Item_pedido->valor = $request->input('valor');
+        $Item_pedido->id_pedido = $request->input('id_pedido');
+        $Item_pedido->id_produto = $request->input('id_produto');
 
         $Item_pedido->save();
 

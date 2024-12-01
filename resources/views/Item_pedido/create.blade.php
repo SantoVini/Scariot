@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <form action="{{ route('ItemPedido.store') }}" method="POST">
+        <form action="{{ route('Item_pedido.store') }}" method="POST">
             @csrf
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Quantidade:</span>
@@ -20,7 +20,7 @@
             </div>
 
             <button type="submit" class="btn btn-sucess">Salvar</button>
-            <a href="{{ route('ItemPedido.index')}}" class="btn btn-secondary">Cancelar</a>
+            <a href="{{ route('Item_pedido.index')}}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>    
 </x-app-layout>

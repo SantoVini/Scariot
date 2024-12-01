@@ -31,6 +31,6 @@ Route::resource('Cliente', ClienteController::class);
 
 Route::resource('Pedido', PedidoController::class);
 
-Route::resource('ItemPedido', ItemPedidoController::class);
+Route::resource('Item_pedido', Item_pedidoController::class);
 
 require __DIR__.'/auth.php';

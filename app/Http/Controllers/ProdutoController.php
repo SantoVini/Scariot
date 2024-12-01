@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 class ProdutoController extends Controller
 {
@@ -30,7 +31,7 @@ class ProdutoController extends Controller
     {
         $Produto = new Produto([
             'nome' => $request ->input('nome'),
-            'descricao' => $request ->input('descricao'),
+            'descrição' => $request ->input('descrição'),
             'valor_base' => $request ->input('valor_base'),
         ]);
 
@@ -65,7 +66,7 @@ class ProdutoController extends Controller
         $Produto = Produto::findOrFail($id);
 
         $Produto->nome = $request->input('nome');
-        $Produto->descricao = $request->input('descricao');
+        $Produto->descrição = $request->input('descrição');
         $Produto->valor_base = $request->input('valor_base');
     }
 

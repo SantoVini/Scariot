@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item_pedido extends Model
 {
-    use HasFactory;
+    protected $table = 'Item_pedido';
+    protected $fillable = ['quantidade','valor','id_pedido','id_produto'];
 }
