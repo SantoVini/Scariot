@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.footer {
+    background-color: #282828;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-text p {
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.social-btn {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.social-btn.facebook {
+    background-color: #3b5998;
+}
+
+.social-btn.instagram {
+    background-color: #E1306C;
+}
+
+.social-btn img {
+    width: 24px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}

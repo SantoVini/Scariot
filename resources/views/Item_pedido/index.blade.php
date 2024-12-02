@@ -1,11 +1,11 @@
 <x-app-layout>
-    <a href="{{route ('Item_pedido.create')}}" class="btn btn-primary">Novo Produto</a>
     <table class="table">
         <thead>
             <tr>ID</tr>
             <tr>Nome</tr>
             <tr>Descricao</tr>
             <tr>Valor Base</tr>
+            <tr><a href="{{route ('Item_pedido.create')}}" class="btn btn-primary">Novo Produto</a></tr>
         </thead>
         <tbody>
             @foreach ($Item_pedido as $Item_pedido)
