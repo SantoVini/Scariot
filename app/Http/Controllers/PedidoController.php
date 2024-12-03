@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pedido;
+use App\Models\Item_pedido;
 
 class PedidoController extends Controller
 {
@@ -22,6 +23,30 @@ class PedidoController extends Controller
     public function create()
     {
         return view ('Pedido.create');
+
+        try {
+            \DB::beginTransaction();
+
+            $pedido = Pedido::create(['cliente_id' => $dadosPedido['cliente_id']]);
+
+            foreach ($dadosPedido['itens'] as $item) {
+                $pedido->itens()->create($item);
+            }
+
+            \DB::commit();
+
+            return response()->json([
+                'message' => 'Pedido criado com sucesso!',
+                'pedido' => $pedido->load('itens'),
+            ], 201);
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return response()->json([
+                'message' => 'Erro ao criar o pedido.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
     }
 
     /**

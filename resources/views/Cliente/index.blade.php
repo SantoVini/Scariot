@@ -1,5 +1,4 @@
 <x-app-layout>
-    <a href="{{route ('Cliente.create')}}" class="btn btn-primary">Novo Cliente</a>
     <table class="table table-dark table-hover">
         <thead>
             <th>ID</th>
@@ -7,7 +6,7 @@
             <th>Endereço</th>
             <th>CPF</th>
             <th>Email</th>
-            <th></th>
+            <th><a href="{{route ('Cliente.create')}}" class="btn btn-primary">Novo Cliente</a></th>
         </thead>
         <tbody>
             @foreach ($Cliente as $Cliente)

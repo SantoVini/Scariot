@@ -1,12 +1,12 @@
 <x-app-layout>
-    <a href="{{route ('Pedido.create')}}" class="btn btn-primary">Novo Pedido</a>
-    <table class="table">
+    <table class="table table-dark table-hover">
         <thead>
-            <tr>ID</tr>
-            <tr>Descrição</tr>
-            <tr>Data Pedido</tr>
-            <tr>Valor Total</tr>
-            <tr>ID Cliente</tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Data Pedido</th>
+            <th>Valor Total</th>
+            <th>ID Cliente</th>
+            <th><a href="{{route ('Pedido.create')}}" class="btn btn-primary">Novo Pedido</a></th>
         </thead>
         <tbody>
             @foreach ($Pedido as $Pedido)
@@ -17,8 +17,8 @@
                 <td class="valor_total">{{ $Pedido->valor_total }}</td>
                 <td class="id_cliente">{{ $Pedido->id_cliente }}</td>
                 <td>
-                    <a href="{{ route('Pedido.show', $Pedido->id) }}" class=btn btn-info>Detalhes</a>
-                    <a href="{{ route('Pedido.edit', $Pedido->id) }}" class=btn btn-warning>Editar</a>
+                    <a href="{{ route('Pedido.show', $Pedido->id) }}" class="btn btn-info">Detalhes</a>
+                    <a href="{{ route('Pedido.edit', $Pedido->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('Pedido.destroy', $Pedido->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')

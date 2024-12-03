@@ -19,7 +19,7 @@
                 <input type="text" name="id_cliente" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Username">
             </div>
 
-            <button type="submit" class="btn btn-sucess">Salvar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
             <a href="{{ route('Pedido.index')}}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>

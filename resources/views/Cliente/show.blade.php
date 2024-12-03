@@ -4,28 +4,29 @@
             {{__('Clientes') }}
         </h2>
     </x-slot>
-    <section class="details">
-        <div class="content">
-            <div class="meta">
-                <span class="label">ID:</span>
-                <span class="info">{{ $Cliente->id }}</span>
+    <div class="px-4 py-5 my-5 text-center">
+        <section class="details">
+            <div class="content">
+                <div class="meta text-light lead mb-4">
+                    <span class="label">ID:</span>
+                    <span class="info">{{ $Cliente->id }}</span>
+                </div>
+                <div class="meta text-light lead mb-4">
+                    <span class="label">Nome:</span>
+                    <span class="info">{{ $Cliente->nome }}</span>
+                </div>
+                <div class="meta text-light lead mb-4">
+                    <span class="label">CPF:</span>
+                    <span class="info">{{ $Cliente->cpf }}</span>
+                </div>
+                <div class="meta text-light lead mb-4">
+                    <span class="label">Email:</span>
+                    <span class="info">{{ $Cliente->email }}</span>
+                </div>
             </div>
-            <div class="meta">
-                <span class="label">Nome:</span>
-                <span class="info">{{ $Cliente->nome }}</span>
-            </div>
-            <div class="meta">
-                <span class="label">CPF:</span>
-                <span class="info">{{ $Cliente->cpf }}</span>
-            </div>
-            <div class="meta">
-                <span class="label">Email:</span>
-                <span class="info">{{ $Cliente->email }}</span>
-            </div>
-        </div>
-        <a href="{{ route('Cliente.index') }}" class="btn-return">Voltar</a>
-    </section>
-
+            <a href="{{ route('Cliente.index') }}" class="btn btn-primary">Voltar</a>
+        </section>
+    </div>
     <footer style="background-color: #282828; color: #fff; padding: 20px 0; text-align: center;">
         <div style="margin-bottom: 10px;">
             <p style="margin: 0;">Siga-nos nas redes sociais:</p>

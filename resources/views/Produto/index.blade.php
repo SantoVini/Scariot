@@ -15,8 +15,8 @@
                 <td class="descrição">{{ $Produto->descrição }}</td>
                 <td class="valor_base">{{ $Produto->valor_base }}</td>
                 <td>
-                    <a href="{{ route('Produto.show', $Produto->id) }}" class=btn btn-info>Detalhes</a>
-                    <a href="{{ route('Produto.edit', $Produto->id) }}" class=btn btn-warning>Editar</a>
+                    <a href="{{ route('Produto.show', $Produto->id) }}" class="btn btn-info">Detalhes</a>
+                    <a href="{{ route('Produto.edit', $Produto->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('Produto.destroy', $Produto->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
