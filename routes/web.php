@@ -33,7 +33,7 @@ Route::resource('Pedido', PedidoController::class);
 
 Route::resource('Item_pedido', Item_pedidoController::class);
 
-Route::post('/pedidos', [PedidoController::class, 'criarPedido']);
-Route::get('/pedidos/{id}', [PedidoController::class, 'mostrarPedido']);
+Route::post('/Pedido', [PedidoController::class, 'criarPedido']);
+Route::get('/Pedido/{id}', [PedidoController::class, 'mostrarPedido']);
 
 require __DIR__.'/auth.php';

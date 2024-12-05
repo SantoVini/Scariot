@@ -35,4 +35,9 @@ class Pedido extends Model
             'total' => $total,
         ]);
     }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'Id_cliente');
+    }
 }

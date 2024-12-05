@@ -111,4 +111,20 @@ class PedidoController extends Controller
         $Pedido->delete();
         return redirect()->route('Pedido.index');
     }
+
+    public function mostrarPedido($id)
+    {
+        // Carregar o pedido junto com o cliente e os itens
+        $pedido = Pedido::with(['cliente', 'itens'])->findOrFail($id);
+
+        // Opcional: Calcular o total (se necessário)
+        $total = $pedido->calcularTotal();
+
+        // Retornar os dados
+        return response()->json([
+            'pedido' => $pedido,
+            'cliente' => $pedido->cliente, // Dados do cliente
+            'total' => $total,
+        ]);
+    }
 }
